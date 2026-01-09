@@ -2,3 +2,11 @@
 # Python: sqlite3.connect('myapp.db')
 # Connection string: sqlite:////home/kavia/workspace/code-generation/task-tracker-197081-197094/database/myapp.db
 # File path: /home/kavia/workspace/code-generation/task-tracker-197081-197094/database/myapp.db
+#
+# Schema notes:
+# - tasks table:
+#   id INTEGER PRIMARY KEY AUTOINCREMENT
+#   title TEXT NOT NULL
+#   completed INTEGER NOT NULL DEFAULT 0   (0/1)
+#   created_at TEXT NOT NULL              (recommended ISO-8601, e.g. 2026-01-09T12:34:56Z)
+#   updated_at TEXT NOT NULL              (recommended ISO-8601)

@@ -50,6 +50,19 @@ cursor.execute("""
     )
 """)
 
+# Create tasks table (used by the to-do app)
+# Note: SQLite stores booleans as integers (0/1). We keep completed as INTEGER for clarity and portability.
+# We store created_at/updated_at as TEXT to match the requested schema; the application layer should write ISO-8601 timestamps.
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS tasks (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        completed INTEGER NOT NULL DEFAULT 0,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+    )
+""")
+
 # Insert initial data
 cursor.execute("INSERT OR REPLACE INTO app_info (key, value) VALUES (?, ?)", 
                ("project_name", "database"))
